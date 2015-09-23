@@ -1,0 +1,46 @@
+@import "variables";
+
+.container{
+	padding-top:100px;
+	padding-left:300px;
+	.cube{
+		display: block;
+		float:left;
+		transform-style:preserve-3d;
+		transition:transform 0.5s ease;
+		width: 500px;
+		height: 500px;
+		transform:rotateX(-100deg) rotateY(-100deg);
+
+		.plane{
+			display:block;
+			float:left;
+			height: 500px;
+			width: 500px;
+			position: absolute;
+
+			.pipe{
+				display: block;
+				float:left;
+				width:98px;
+				height: 98px;
+				border:1px solid $black;
+				background-color: $grey;
+			}
+		}
+
+		@for $i from 0 through 5{
+			.plane[data-plane="#{$i}"]{
+				@if $i == 4{
+					transform: rotateX(90deg) translateZ(250px);
+				}
+				@else if $i == 5{
+					transform: rotateX(-90deg) translateZ(250px);
+				}
+				@else{
+					transform: rotateY(90deg * $i) translateZ(250px);
+				}
+			}	
+		}	
+	}
+}

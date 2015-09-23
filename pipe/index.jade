@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="description" content="")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+    link(rel="stylesheet" href="assets/min/main.min.css")
+  body
+    .container
+      .cube
+        -for(var x = 0; x < 6; x++)
+          .plane(data-plane=x)
+            -for(var i = 0; i < 25; i++)
+              .pipe(data-index=i)
+
+    script(src="assets/min/main.min.js")
